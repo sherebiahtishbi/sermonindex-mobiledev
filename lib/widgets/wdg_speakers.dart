@@ -11,51 +11,56 @@ class Speakers extends StatefulWidget {
 class _SpeakersState extends State<Speakers> {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: getSpeakers(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            print(snapshot.data[0].spkName);
-            return ListView.builder(
-                itemCount: snapshot.data.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(0.5),
-                    child: Card(
-                      // shadowColor: Colors.black,
-                      color: Colors.lime[900],
-                      child: ListTile(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              new MaterialPageRoute(
-                                  builder: (context) =>
-                                      Sermonlist(snapshot.data[index])));
-                        },
-                        leading: Icon(
-                          Icons.record_voice_over,
-                          size: 50.0,
+    return Column(
+      children: [
+        FutureBuilder(
+            future: getSpeakers(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                print(snapshot.data[0].spkName);
+                return ListView.builder(
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(0.5),
+                        child: Card(
+                          // shadowColor: Colors.black,
+                          color: Colors.lime[900],
+                          child: ListTile(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  new MaterialPageRoute(
+                                      builder: (context) =>
+                                          Sermonlist(snapshot.data[index])));
+                            },
+                            leading: Icon(
+                              Icons.record_voice_over,
+                              size: 50.0,
+                            ),
+                            title: Text(
+                              Commons.formattedName(
+                                  snapshot.data[index].spkName),
+                              style: TextStyle(
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black54),
+                            ),
+                            // subtitle: Text('Here is a second line'),
+                            trailing: Icon(Icons.more_vert),
+                          ),
                         ),
-                        title: Text(
-                          Commons.formattedName(snapshot.data[index].spkName),
-                          style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.black54),
-                        ),
-                        // subtitle: Text('Here is a second line'),
-                        trailing: Icon(Icons.more_vert),
-                      ),
-                    ),
-                  );
-                });
-          } else {
-            return Container(
-              child: Center(
-                child: Text("Loading Speakers.."),
-              ),
-            );
-          }
-        });
+                      );
+                    });
+              } else {
+                return Container(
+                  child: Center(
+                    child: Text("Loading Speakers.."),
+                  ),
+                );
+              }
+            }),
+      ],
+    );
   }
 }
