@@ -2,15 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:sermonindex/config/appsettings.dart';
 
 Widget AppHeader = AppBar(
-  leading: IconButton(
-    icon: Icon(
-      Icons.menu,
-      color: Colors.white,
-    ),
-    onPressed: () {},
+  // leading: IconButton(
+  //   icon: Icon(
+  //     Icons.menu,
+  //     color: Colors.white,
+  //   ),
+  //   onPressed: () {},
+  // ),
+  // leading: Image(
+  //   image: AssetImage("assets/sermonidex-top-large-2.png"),
+  //   fit: BoxFit.cover,
+  // ),
+  // title: AppSettings.SI_TITLE_HOME,
+  title: Image(
+    image: AssetImage("assets/sermonidex-top-large-2.png"),
+    fit: BoxFit.cover,
   ),
-  title: AppSettings.SI_TITLE_HOME,
-  centerTitle: true,
+  // centerTitle: true,
   backgroundColor: AppSettings.SI_BGCOLOR,
   actions: <Widget>[
     IconButton(

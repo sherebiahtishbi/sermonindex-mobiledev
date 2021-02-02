@@ -5,8 +5,9 @@ import 'package:sermonindex/config/appsettings.dart';
 class Speaker {
   final String spkName;
   final String spkSermonFilename;
+  final String spkImageUrl;
 
-  Speaker({this.spkName, this.spkSermonFilename});
+  Speaker({this.spkName, this.spkSermonFilename, this.spkImageUrl});
 
   factory Speaker.fromJson(Map<String, dynamic> _speaker) {
     return Speaker(
@@ -28,7 +29,9 @@ Future<List<Speaker>> getSpeakers() async {
       // print(speakerName);
       // print(jsonData[speakerName]);
       speakers.add(new Speaker(
-          spkName: speakerName, spkSermonFilename: jsonData[speakerName]));
+          spkName: speakerName,
+          spkSermonFilename: jsonData[speakerName],
+          spkImageUrl: AppSettings.baseApi + "images/" + speakerName + ".gif"));
     }
     print("# of speakers : " + speakers.length.toString());
     print(speakers[1200].spkName);
