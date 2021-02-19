@@ -12,4 +12,5 @@ class AppSettings {
   // SermonIndex APIs
   static const String baseApi = "http://api.sermonindex.net/audio/";
   static const String speakerApi = baseApi + "speaker/_sermonindex.json";
+  static const String imageBaseApi = "http://api.sermonindex.net/";
 }

@@ -48,7 +48,11 @@ class _SermonsState extends State<Sermons> {
                                       context,
                                       new MaterialPageRoute(
                                           builder: (context) => PlayerPage(
-                                              snapshot.data.sermons[index])));
+                                              snapshot.data.sermons[index],
+                                              snapshot.data.speakerName,
+                                              snapshot.data.imageUrl)));
+                                  print(snapshot.data.speakerName);
+                                  print(snapshot.data.imageUrl);
                                 },
                               ),
                             ),

@@ -9,9 +9,14 @@ class SpeakerInfo {
   final String description;
   final int totalSermons;
   final List<Sermon> sermons;
+  final String imageUrl;
 
   SpeakerInfo(
-      {this.speakerName, this.description, this.totalSermons, this.sermons});
+      {this.speakerName,
+      this.description,
+      this.totalSermons,
+      this.sermons,
+      this.imageUrl});
 }
 
 class Sermon {
@@ -19,8 +24,16 @@ class Sermon {
   final String url;
   final List<String> scriptures;
   final String topic;
+  final String description;
+  final String imageUrl;
 
-  Sermon({this.title, this.url, this.scriptures, this.topic});
+  Sermon(
+      {this.title,
+      this.url,
+      this.scriptures,
+      this.topic,
+      this.description,
+      this.imageUrl});
 }
 
 Future<SpeakerInfo> getSpeakerInfo(Speaker speaker) async {
@@ -36,14 +49,16 @@ Future<SpeakerInfo> getSpeakerInfo(Speaker speaker) async {
           sermons.add(new Sermon(
               title: sermon["title"],
               url: sermon["url"],
-              topic: sermon["topic"]))
+              topic: sermon["topic"],
+              description: sermon["description"]))
         });
 
     SpeakerInfo speakerInfo = SpeakerInfo(
         speakerName: jsonData["name"],
         description: jsonData["description"],
         totalSermons: jsonSermons.length,
-        sermons: sermons);
+        sermons: sermons,
+        imageUrl: AppSettings.imageBaseApi + jsonData["image"]);
     return speakerInfo;
   } else {
     return null;

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sermonindex/models/mdl_speaker.dart';
 import 'package:sermonindex/widgets/sermonlistheader.dart';
-import 'package:sermonindex/widgets/wdg_appheader.dart';
 import 'package:sermonindex/widgets/wdg_sermons.dart';
 
 class Sermonlist extends StatefulWidget {

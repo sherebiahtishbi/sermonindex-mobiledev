@@ -26,12 +26,6 @@ class SpeakerPageState extends State<SpeakerPage> {
                   top: 0.0, left: 8.0, right: 8.0, bottom: 8.0),
               child: Speakers(),
             ))
-            // Container(
-            //   child: Padding(
-            //     padding: const EdgeInsets.all(8.0),
-            //     child: Speakers(),
-            //   ),
-            // ),
           ],
         ),
       ),
